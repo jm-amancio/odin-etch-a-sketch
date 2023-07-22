@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Tektur&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    font-family: Tektur, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f9665e;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-container {
+    /* border: 1px solid white; // for debugging */
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-header {
+    height: 48px;
+    padding: 12px;
+    margin-bottom: auto;
+}
+
+#main-content {
+    flex: 1;
+}
+
+#main-content > .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+#grid-container {
+    background-color: white;
+    width: 450px;
+    height: 450px;
+}
+
+#grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.grid-column {
+    background-color: #ffffff;
+    /* border: 1px solid #000000; */
+}
+
+#grid-edit-buttons {
+    height: 48px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+}
+
+button {
+    border-radius: 1em;
+    width: 100px;
+    height: 36px; 
+    margin: 6px;
+}
+
+#grid-size-edit {
+    background-color: #F0F0F0;
+    text-align: center;
+    width: 150px;
+    height: 36px;
+    padding: 6px;
+    border: 2px solid #000000;
+    border-radius: 1em;
+    margin-bottom: 6px;
+}
+
+#main-footer {
+    height: 36px;
+    padding: 12px;
+    margin-top: auto;
+}
