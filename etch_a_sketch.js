@@ -4,12 +4,12 @@ let rowDiv = [], columnDiv = [];
 let row = 16, column = 16;
 let color = "black";
 
-setGrid(16, 16);
-
-//
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
+
+// create initial grid
+setGrid(16, 16);
 
 // adds event listener to each button
 const grid_edit_buttons = document.getElementsByTagName('button');
@@ -28,7 +28,9 @@ document.getElementById('grid-size-edit').addEventListener('click', () => {
     }
 });
 
-function setGrid(row, column){  
+function setGrid(newRow, newColumn){
+    row = newRow;
+    column = newColumn;  
     for(let i=0; i<row; i++){
         rowDiv[i] = document.createElement('div');
         rowDiv[i].classList.add('grid-row');
