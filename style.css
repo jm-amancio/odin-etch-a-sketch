@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #f9665e;
+    background-color: #D6D6D6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -46,6 +46,7 @@ body {
     background-color: white;
     width: 450px;
     height: 450px;
+    box-shadow: 10px 10px 6px -6px #777;
 }
 
 #grid {
