@@ -6,6 +6,12 @@ let color = "black";
 
 setGrid(16, 16);
 
+//
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+
+// adds event listener to each button
 const grid_edit_buttons = document.getElementsByTagName('button');
 for(let i=0; i<grid_edit_buttons.length; i++){
     grid_edit_buttons[i].addEventListener('click', (e) => {
@@ -13,6 +19,7 @@ for(let i=0; i<grid_edit_buttons.length; i++){
     });
 }
 
+// prompt user for new grid size
 document.getElementById('grid-size-edit').addEventListener('click', () => {
     let newSize = prompt("Enter new grid size (1 <= size <= 100):");
     if(newSize > 0 && newSize <= 100) {
@@ -34,15 +41,18 @@ function setGrid(row, column){
         }
         grid.appendChild(rowDiv[i]);
     }
-    // the loop below adds an event listener to each block
-    // can be optimized
+    // adds event listener to each block; can be optimized
     for(let i=0; i<row; i++){
         for(let j=0; j<column; j++){
-            rowDiv[i].children[j].addEventListener('click', ()=> {
-                if(color !== "black" && color !== "white"){
-                    color = `RGB(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
-                }
+            rowDiv[i].children[j].addEventListener('mousedown', ()=> {
+                if(color !== "black" && color !== "white") color = randomColor();
                 rowDiv[i].children[j].style.backgroundColor = color;
+            });
+            rowDiv[i].children[j].addEventListener('mouseover', ()=> { 
+                if (mouseDown) {
+                    if(color !== "black" && color !== "white") color = randomColor();
+                    rowDiv[i].children[j].style.backgroundColor = color;
+                }
             });
         }
     }
@@ -65,6 +75,9 @@ function setColor(colorPreference){
     }
 }
 
-function randomNumber (){
-    return Math.floor(Math.random() * 255);
+function randomColor (){
+    let red = Math.floor(Math.random()*255);
+    let green = Math.floor(Math.random()*255);
+    let blue = Math.floor(Math.random()*255);
+    return `RGB(${red}, ${green}, ${blue})`;
 }
